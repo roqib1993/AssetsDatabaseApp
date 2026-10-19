@@ -1,0 +1,95 @@
+/* Print Styles for Asset Report */
+
+@media print {
+  /* Reset page */
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  /* Reset body */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Hide everything except the print container */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Make print container and children visible */
+  .print-container,
+  .print-container * {
+    visibility: visible;
+  }
+
+  /* Position print container to fill page */
+  .print-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Remove modal styling */
+  .print-container > div {
+    max-width: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Remove content padding */
+  .print-content {
+    padding: 0 !important;
+  }
+
+  /* Single column layout for all grids */
+  .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Image sizing */
+  img {
+    max-height: 180px !important;
+    height: auto !important;
+    width: auto !important;
+    object-fit: contain !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Company logo sizing */
+  img[alt*="POMI"],
+  img[alt*="PAITON"] {
+    max-height: 45px !important;
+  }
+
+  /* Page breaks */
+  .page-break-before {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  .page-break-inside-avoid {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Ensure colors print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Hide print button and close button */
+  .print\\:hidden {
+    display: none !important;
+  }
+}
